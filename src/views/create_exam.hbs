@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Добавление экзамена</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Добавление экзамена</h1>
+    <form action="send" method="POST">
+      <label>Предмет</label>
+      <select name="subject">
+        {{#each subjects}}
+          <option value={{this.id}}>{{this.name}}</option>
+        {{/each}}
+      </select>
+      <br /><br />
+      {{#each students}}
+        <label>{{this.lastName}} {{this.firstName}} {{this.patronymic}}</label>
+        <input name={{this.id}} type="number" value="2" min="2" max="5" />
+        <br /><br />
+      {{/each}}
+      <input type="submit" value="Отправить" />
+    </form>
+    <a href="/exams">К экзаменационной ведомости</a>
+  </body>
+</html>

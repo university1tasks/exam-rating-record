@@ -7,9 +7,9 @@
     <a href="/students/create">Добавить студента</a>
     <h1>Список студентов</h1>
     <table>
-      <tr><th>Имя</th><th>Фамилия</th><th>Отчество</th><th>Группа</th></tr>
+      <tr><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Группа</th></tr>
       {{#each students}}
-        <tr><td>{{this.firstName}}</td><td>{{this.lastName}}</td><td
+        <tr><td>{{this.lastName}}</td><td>{{this.firstName}}</td><td
           >{{this.patronymic}}</td><td>{{this.group}}</td></tr>
       {{/each}}
     </table>

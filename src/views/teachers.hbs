@@ -7,10 +7,10 @@
     <a href="/teachers/create">Добавить преподавателя</a>
     <h1>Список преподавателей</h1>
     <table>
-      <tr><th>Имя</th><th>Фамилия</th><th>Отчество</th><th>Ученая степень</th><th
+      <tr><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Ученая степень</th><th
         >Кафедра</th></tr>
       {{#each teachers}}
-        <tr><td>{{this.firstName}}</td><td>{{this.lastName}}</td><td
+        <tr><td>{{this.lastName}}</td><td>{{this.firstName}}</td><td
           >{{this.patronymic}}</td><td>{{this.academicDegree}}</td><td
           >{{this.department}}</td></tr>
       {{/each}}
