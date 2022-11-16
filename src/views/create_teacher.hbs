@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Добавление преподавателя</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Добавление преподавателя</h1>
+    <form action="send" method="POST">
+      <label>Имя</label>
+      <input name="firstName" /><br /><br />
+      <label>Фамилия</label>
+      <input name="lastName" /><br /><br />
+      <label>Отчество</label>
+      <input name="patronymic" /><br /><br />
+      <label>Ученая степень</label>
+      <input name="academicDegree" /><br /><br />
+      <label>Кафедра</label>
+      <input name="department" /><br /><br />
+      <input type="submit" value="Отправить" />
+    </form>
+    <a href="/teachers">К списку преподавателей</a>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Добавление предмета</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Добавление предмета</h1>
+    <form action="send" method="POST">
+      <label>Название</label>
+      <input name="name" /><br /><br />
+      <label>Преподаватель</label>
+      <select name="teacher">
+        {{#each teachers}}
+          <option value={{this.id}}>{{this.firstName}}
+            {{this.lastName}}
+            {{this.patronymic}}</option>
+        {{/each}}
+      </select>
+      <input type="submit" value="Отправить" />
+    </form>
+    <a href="/subjects">К списку предметов</a>
+  </body>
+</html>
