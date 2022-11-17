@@ -2,22 +2,51 @@
   <head>
     <title>Добавление предмета</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
   </head>
+  <nav
+    class="navbar navbar-expand navbar-light bg-light justify-content-center"
+  >
+    <a class="navbar-brand" href="/">Главная страница</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/students">Студенты</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/teachers">Преподаватели</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/subjects">Предметы</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/exams">Экзамены</a>
+      </li>
+    </ul>
+  </nav>
   <body>
-    <h1>Добавление предмета</h1>
-    <form action="send" method="POST">
-      <label>Название</label>
-      <input name="name" /><br /><br />
-      <label>Преподаватель</label>
-      <select name="teacher">
-        {{#each teachers}}
-          <option value={{this.id}}>{{this.lastName}}
-            {{this.firstName}}
-            {{this.patronymic}}</option>
-        {{/each}}
-      </select>
-      <input type="submit" value="Отправить" />
-    </form>
-    <a href="/subjects">К списку предметов</a>
+    <div class="container text-center my-4">
+      <h1>Добавление предмета</h1>
+      <form action="send" method="POST">
+        <div class="form-group row my-4">
+          <label class="col col-form-label">Название</label>
+          <div class="col"><input name="name" class="form-control" /></div>
+        </div>
+        <div class="form-group row my-4">
+          <label class="col col-form-label">Преподаватель</label>
+          <div class="col">
+            <select class="form-select" name="teacher">
+              {{#each teachers}}
+                <option value={{this.id}}>{{this.lastName}}
+                  {{this.firstName}}
+                  {{this.patronymic}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Отправить</button>
+      </form>
+      <a name="" id="" class="btn btn-primary" href="/subjects" role="button">К
+        списку предметов</a>
+    </div>
   </body>
 </html>

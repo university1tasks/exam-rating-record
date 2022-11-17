@@ -2,22 +2,64 @@
   <head>
     <title>Добавление преподавателя</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
   </head>
+  <nav
+    class="navbar navbar-expand navbar-light bg-light justify-content-center"
+  >
+    <a class="navbar-brand" href="/">Главная страница</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/students">Студенты</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/teachers">Преподаватели</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/subjects">Предметы</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/exams">Экзамены</a>
+      </li>
+    </ul>
+  </nav>
   <body>
-    <h1>Добавление преподавателя</h1>
-    <form action="send" method="POST">
-      <label>Имя</label>
-      <input name="firstName" /><br /><br />
-      <label>Фамилия</label>
-      <input name="lastName" /><br /><br />
-      <label>Отчество</label>
-      <input name="patronymic" /><br /><br />
-      <label>Ученая степень</label>
-      <input name="academicDegree" /><br /><br />
-      <label>Кафедра</label>
-      <input name="department" /><br /><br />
-      <input type="submit" value="Отправить" />
-    </form>
-    <a href="/teachers">К списку преподавателей</a>
+    <div class="container text-center my-4">
+      <h1>Добавление преподавателя</h1>
+      <form action="send" method="POST">
+        <div class="form-group row my-4">
+          <label class="col col-form-label">Имя</label>
+          <div class="col"><input name="firstName" class="form-control" /></div>
+        </div>
+        <div class="form-group row my-4">
+          <label class="col col-form-label">Фамилия</label>
+          <div class="col"><input name="lastName" class="form-control" /></div>
+        </div>
+        <div class="form-group row my-4">
+          <label class="col col-form-label">Отчество</label>
+          <div class="col"><input
+              name="patronymic"
+              class="form-control"
+            /></div>
+        </div>
+        <div class="form-group row my-4">
+          <label class="col col-form-label">Ученая степень</label>
+          <div class="col"><input
+              name="academicDegree"
+              class="form-control"
+            /></div>
+        </div>
+        <div class="form-group row my-4">
+          <label class="col col-form-label">Кафедра</label>
+          <div class="col"><input
+              name="department"
+              class="form-control"
+            /></div>
+        </div>
+        <button type="submit" class="btn btn-success">Отправить</button>
+      </form>
+      <a name="" id="" class="btn btn-primary" href="/teachers" role="button">К
+        списку преподавателей</a>
+    </div>
   </body>
 </html>

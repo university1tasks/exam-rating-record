@@ -10,34 +10,6 @@ exports.addExam = function (request, response) {
 };
 
 exports.getExams = function (request, response) {
-  //   new Exam(
-  //     {
-  //       name: "test",
-  //       teacher: {
-  //         lastName: "tln",
-  //         firstName: "tfn",
-  //         patronymic: "tpn",
-  //       },
-  //     },
-  //     [
-  //       {
-  //         student: {
-  //           lastName: "sln",
-  //           firstName: "sfn",
-  //           patronymic: "spn",
-  //         },
-  //         rate: 4,
-  //       },
-  //       {
-  //         student: {
-  //           lastName: "sln2",
-  //           firstName: "sfn2",
-  //           patronymic: "spn2",
-  //         },
-  //         rate: 5,
-  //       },
-  //     ]
-  //   );
   response.render("exams", {
     exams: Exam.getAll(),
   });

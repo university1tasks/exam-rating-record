@@ -2,18 +2,63 @@
   <head>
     <title>Список преподавателей</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
   </head>
+  <nav
+    class="navbar navbar-expand navbar-light bg-light justify-content-center"
+  >
+    <a class="navbar-brand" href="/">Главная страница</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/students">Студенты</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/teachers">Преподаватели</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/subjects">Предметы</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/exams">Экзамены</a>
+      </li>
+    </ul>
+  </nav>
   <body>
-    <a href="/teachers/create">Добавить преподавателя</a>
-    <h1>Список преподавателей</h1>
-    <table>
-      <tr><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Ученая степень</th><th
-        >Кафедра</th></tr>
-      {{#each teachers}}
-        <tr><td>{{this.lastName}}</td><td>{{this.firstName}}</td><td
-          >{{this.patronymic}}</td><td>{{this.academicDegree}}</td><td
-          >{{this.department}}</td></tr>
-      {{/each}}
-    </table>
+    <div class="container text-center my-4">
+      <h1>Список преподавателей</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered my-4">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Фамилия</th>
+              <th scope="col">Имя</th>
+              <th scope="col">Отчество</th>
+              <th scope="col">Ученая степень</th>
+              <th scope="col">Кафедра</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each teachers}}
+              <tr class="">
+                <td scope="row">{{@index}}</td>
+                <td>{{this.lastName}}</td>
+                <td>{{this.firstName}}</td>
+                <td>{{this.patronymic}}</td>
+                <td>{{this.academicDegree}}</td>
+                <td>{{this.department}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <a
+          name=""
+          id=""
+          class="btn btn-primary"
+          href="/teachers/create"
+          role="button"
+        >Добавить преподавателя</a>
+      </div>
+    </div>
   </body>
 </html>

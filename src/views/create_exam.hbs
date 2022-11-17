@@ -2,24 +2,62 @@
   <head>
     <title>Добавление экзамена</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
   </head>
+  <nav
+    class="navbar navbar-expand navbar-light bg-light justify-content-center"
+  >
+    <a class="navbar-brand" href="/">Главная страница</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/students">Студенты</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/teachers">Преподаватели</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/subjects">Предметы</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/exams">Экзамены</a>
+      </li>
+    </ul>
+  </nav>
   <body>
-    <h1>Добавление экзамена</h1>
-    <form action="send" method="POST">
-      <label>Предмет</label>
-      <select name="subject">
-        {{#each subjects}}
-          <option value={{this.id}}>{{this.name}}</option>
+    <div class="container text-center my-4">
+      <h1>Добавление экзамена</h1>
+      <form action="send" method="POST">
+        <div class="form-group row my-4">
+          <label class="col col-form-label">Предмет</label>
+          <div class="col">
+            <select class="form-select" name="subject">
+              {{#each subjects}}
+                <option value={{this.id}}>{{this.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+        {{#each students}}
+          <div class="form-group row my-4">
+            <label class="col col-form-label">{{this.lastName}}
+              {{this.firstName}}
+              {{this.patronymic}}</label>
+            <div class="col">
+              <input
+                name={{this.id}}
+                class="form-control"
+                type="number"
+                value="2"
+                min="2"
+                max="5"
+              />
+            </div>
+          </div>
         {{/each}}
-      </select>
-      <br /><br />
-      {{#each students}}
-        <label>{{this.lastName}} {{this.firstName}} {{this.patronymic}}</label>
-        <input name={{this.id}} type="number" value="2" min="2" max="5" />
-        <br /><br />
-      {{/each}}
-      <input type="submit" value="Отправить" />
-    </form>
-    <a href="/exams">К экзаменационной ведомости</a>
+        <button type="submit" class="btn btn-success">Отправить</button>
+      </form>
+      <a name="" id="" class="btn btn-primary" href="/exams" role="button">К
+        экзаменационной ведомости</a>
+    </div>
   </body>
 </html>
