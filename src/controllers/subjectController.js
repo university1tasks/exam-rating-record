@@ -14,6 +14,14 @@ exports.getSubjects = function (request, response) {
 exports.postSubject = function (request, response) {
   const name = request.body.name;
   const teacher = Teacher.getById(parseInt(request.body.teacher));
-  new Subject(name, teacher);
-  response.redirect("/subjects");
+  try {
+    if (name.length != 0 && teacher != undefined) {
+      new Subject(name, teacher);
+      response.redirect("/subjects");
+    } else {
+      response.status(400).send("Error");
+    }
+  } catch (error) {
+    response.status(400).send("Error");
+  }
 };

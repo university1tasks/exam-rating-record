@@ -13,6 +13,19 @@ exports.postStudent = function (request, response) {
   const lastName = request.body.lastName;
   const patronymic = request.body.patronymic;
   const group = request.body.group;
-  new Student(firstName, lastName, patronymic, group);
-  response.redirect("/students");
+  try {
+    if (
+      firstName.length != 0 &&
+      lastName.length != 0 &&
+      patronymic.length != 0 &&
+      group.length != 0
+    ) {
+      new Student(firstName, lastName, patronymic, group);
+      response.redirect("/students");
+    } else {
+      response.status(400).send("Error");
+    }
+  } catch (error) {
+    response.status(400).send("Error");
+  }
 };
