@@ -4,13 +4,15 @@
   "description": "upr-zapr-dz",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests"
   },
   "author": "mds",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.2.2",
     "express": "^4.18.2",
-    "hbs": "^4.2.0"
+    "hbs": "^4.2.0",
+    "mocha": "^10.1.0",
+    "supertest": "^6.3.1"
   }
 }

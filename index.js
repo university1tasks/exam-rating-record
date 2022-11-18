@@ -23,4 +23,7 @@ app.use(function (req, res, next) {
   res.status(404).send("Not Found");
 });
 
-app.listen(3000);
+const server = app.listen(3000);
+
+module.exports.app = app;
+module.exports.server = server;
