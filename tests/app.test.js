@@ -2,6 +2,8 @@ const assert = require("assert");
 const { after } = require("mocha");
 const supertest = require("supertest");
 const { app, server } = require("../index");
+const { postStudent } = require("../src/controllers/studentController");
+const { postSubject } = require("../src/controllers/subjectController");
 const Student = require("../src/models/student");
 const Subject = require("../src/models/subject");
 const Teacher = require("../src/models/teacher");
@@ -31,11 +33,23 @@ describe("Main routes", () => {
 });
 
 describe("Objects creation", () => {
+  const responseFake = {
+    redirect: function (v) {},
+  };
+
   context("simple object", () => {
     it("should create student", () => {
-      const student = new Student("Ivan", "Ivanov", "Ivanovich", "IVT");
-      assert.equal(Student.getById(0), student);
-      assert.equal(Student.getAll().next().value, student);
+      const student = {
+        firstName: "Ivan",
+        lastName: "Ivanov",
+        patronymic: "Ivanovich",
+        group: "IVT",
+      };
+      postStudent({ body: student }, responseFake);
+      assert.equal(Student.getById(0).firstName, student.firstName);
+      assert.equal(Student.getById(0).lastName, student.lastName);
+      assert.equal(Student.getById(0).patronymic, student.patronymic);
+      assert.equal(Student.getById(0).group, student.group);
     });
   });
 
@@ -48,9 +62,13 @@ describe("Objects creation", () => {
         "Doctor",
         "IST"
       );
-      const subject = new Subject("EVM", teacher);
-      assert.equal(Subject.getById(0), subject);
-      assert.equal(Subject.getAll().next().value, subject);
+      const subject = {
+        name: "EVM",
+        teacher: "0",
+      };
+      postSubject({ body: subject }, responseFake);
+      assert.equal(Subject.getById(0).name, subject.name);
+      assert.equal(Subject.getById(0).teacher, teacher);
     });
   });
 });
